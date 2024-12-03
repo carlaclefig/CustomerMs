@@ -4,7 +4,7 @@ info:
   description: API para gestionar clientes del banco XYZ
   version: 1.0.0
 servers:
-  - url: http://localhost:8080/api
+  - url: http://localhost:8084/api
     description: Servidor local de desarrollo
 
 paths:
