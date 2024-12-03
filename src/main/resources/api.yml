@@ -1,0 +1,184 @@
+openapi: 3.0.3
+info:
+  title: Customer Microservice API
+  description: API para gestionar clientes del banco XYZ
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/api
+    description: Servidor local de desarrollo
+
+paths:
+  /customers:
+    post:
+      summary: Crear un nuevo cliente
+      operationId: createCustomer
+      requestBody:
+        description: Datos del cliente a crear (name, lastName, dni, email son obligatorios)
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerRequest'
+      responses:
+        '201':
+          description: Cliente creado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerDTO'
+        '400':
+          description: Entrada incorrecta
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Error inesperado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    get:
+      summary: Listar todos los clientes
+      operationId: getAllCustomers
+      responses:
+        '200':
+          description: Lista de clientes obtenida exitosamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomerDTO'
+        '404':
+          description: No se encontró la información solicitada
+        '400':
+          description: Solicitud con datos incorrectos
+          
+  /customers/{id}:
+    get:
+      summary: Obtener detalles de un cliente por su ID
+      operationId: getCustomerById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID del cliente a obtener
+      responses:
+        '200':
+          description: Datos del cliente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerDTO'
+        '404':
+          description: Cliente no encontrado
+        '400':
+          description: Entrada incorrecta
+        '500':
+          description: Error inesperado
+
+    put:
+      summary: Actualizar los datos de un cliente
+      operationId: updateCustomer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID del cliente a actualizar
+      requestBody:
+        description: Datos del cliente a actualizar
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerRequest'
+      responses:
+        '200':
+          description: Actualización exitosa del cliente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerDTO'
+        '404':
+          description: Cliente no encontrado
+        '400':
+          description: Entrada incorrecta
+        '500':
+          description: Error inesperado
+
+    delete:
+      summary: Eliminar un cliente
+      operationId: deleteCustomer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID del cliente a eliminar
+      responses:
+        '200':
+          description: Eliminación exitosa del cliente
+        '404':
+          description: Cliente no encontrado
+        '400':
+          description: Entrada incorrecta
+        '500':
+          description: Error inesperado
+
+components:
+  schemas:
+    CustomerDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: "John"
+        lastName:
+          type: string
+          example: "Doe"
+        dni:
+          type: string
+          example: "12345678"
+        email:
+          type: string
+          example: "john.doe@example.com"
+    
+    CustomerRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "John"
+        lastName:
+          type: string
+          example: "Doe"
+        dni:
+          type: string
+          example: "12345678"
+        email:
+          type: string
+          example: "john.doe@example.com"
+      required:
+        - name
+        - lastName
+        - dni
+        - email
+    
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 400
+        message:
+          type: string
+          example: "DNI ya existe"
