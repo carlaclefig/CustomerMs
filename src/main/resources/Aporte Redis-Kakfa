@@ -1,0 +1,41 @@
+CustomerMs
+
+Casos de Redis:
+1.	Caso Real: Caché en una api de productos
+En una aplicación de comercio electrónico que gestiona productos en su base de datos, y esta aplicación necesita responder rápidamente a las consultas de los usuarios sobre los productos (nombre, descripción, precio, etc.). Sin embargo, las consultas a la base de datos son lentas cuando se realiza una carga alta de usuarios
+Usando Redis:
+Mejora el rendimiento de las consultas y reduce la carga sobre la base de datos, ya que se usa redis sistema de caché. Cada vez que se consulta un producto en la API, primero se revisa si ese producto ya está en la caché. Si está en la caché, se devuelve de inmediato, lo que reduce significativamente el tiempo de respuesta. Si no está en la caché, se realiza la consulta a la base de datos y una vez recuperado el producto se guarda en Redis para futuras consultas.
+Beneficios:
+•	Rendimiento: Acceder a Redis es mucho más rápido que hacer una consulta a la base de datos.
+•	Escalabilidad: Redis puede manejar una gran cantidad de lecturas rápidas sin sobrecargar la base de datos.
+•	Reducción de la carga: Disminuye el número de consultas a la base de datos, lo que mejora el rendimiento general de la aplicación.
+
+2.	Caso Hipotético: Gestión de Sesiones de Usuario en una Aplicación Web Escalable
+En una aplicación web de autenticación de usuarios que necesita manejar miles o millones de usuarios concurrentes. La aplicación debe recordar el estado de cada usuario entre las solicitudes (por ejemplo, si está autenticado, qué datos ha visto, etc.). Si no se maneja correctamente, el sistema de sesiones puede ser ineficiente y difícil de escalar.
+Usando Redis:
+Se utiliza como un almacén de sesiones distribuidas. En lugar de almacenar las sesiones en la base de datos, Redis se usa para almacenar las sesiones en memoria, lo que permite un acceso ultra rápido a la información de las sesiones de los usuarios. Debido a su naturaleza de clave-valor, Redis permite almacenar las sesiones de una manera muy eficiente, lo que facilita la escalabilidad y la sincronización de las sesiones en múltiples servidores.
+Beneficios:
+•	Escalabilidad: Redis puede ser fácilmente distribuido y replicado en múltiples servidores, permitiendo que la aplicación escale sin perder consistencia en las sesiones.
+•	Acceso rápido: Al ser un almacén en memoria, Redis proporciona un acceso extremadamente rápido a las sesiones de usuario.
+•	Alta disponibilidad: Redis permite la persistencia de las sesiones, incluso en caso de fallos del servidor, utilizando sus mecanismos de persistencia y replicación.
+
+
+
+Casos de Kafka:
+1.	Caso Real: Procesamiento de Transacciones en un Sistema de Pagos
+En un sistema de pagos, las transacciones de dinero se deben procesar de manera eficiente y en tiempo real. A medida que la aplicación crece, el volumen de transacciones aumenta, y se necesita una solución para procesarlas de manera asíncrona y escalable.
+Usando Kafka:
+Se utiliza como un sistema de mensajería para procesar las transacciones. En lugar de procesar cada transacción de manera síncrona (lo que podría generar retrasos y cuellos de botella), las transacciones se publican en un topic de Kafka, y los servicios de procesamiento de pagos las consumen de manera asíncrona. Esto permite que las transacciones se procesen de manera eficiente, escalando horizontalmente los consumidores de Kafka según el volumen de transacciones
+Beneficios:
+•	Escalabilidad: Kafka permite agregar más consumidores para procesar más transacciones sin afectar el rendimiento.
+•	Desacoplamiento: Los productores (quienes generan las transacciones) no están directamente conectados con los consumidores (quienes procesan las transacciones), lo que mejora la flexibilidad y robustez del sistema.
+•	Persistencia: Kafka garantiza la persistencia de los mensajes (transacciones) en caso de fallos.
+
+2.	Caso Hipotético: Monitorización de Sensores en un Sistema IoT
+En un sistema de Internet de las Cosas (IoT) que recopila datos de sensores distribuidos (temperatura, humedad, etc.) de miles de dispositivos en tiempo real. Los datos de estos sensores necesitan ser procesados rápidamente y distribuidos a diferentes servicios para su análisis.
+Usando Kafka:
+Se utiliza como sistema de mensajería en tiempo real para recopilar los datos de los sensores. Los dispositivos envían los datos a Kafka, donde se almacenan de manera temporal y luego son consumidos por diferentes servicios para análisis, almacenamiento o alertas. Kafka permite manejar grandes volúmenes de datos, garantizando que no se pierdan y que puedan ser procesados de manera eficiente.
+Beneficios:
+•	Escalabilidad: Kafka puede manejar un número masivo de mensajes, permitiendo que el sistema escale a medida que se añaden más sensores.
+•	Desacoplamiento: Los productores (sensores) y consumidores (servicios de análisis) están desacoplados, lo que facilita la integración de nuevos servicios sin afectar el sistema existente.
+•	Resiliencia: Kafka asegura que los datos no se pierdan y sean procesados correctamente, incluso si alguno de los servicios de consumo falla temporalmente.
