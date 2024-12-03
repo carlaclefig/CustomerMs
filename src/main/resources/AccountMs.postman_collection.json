@@ -1,0 +1,327 @@
+{
+	"info": {
+		"_postman_id": "d1bf58ac-e653-4eb3-8102-c9d5116396b8",
+		"name": "AccountMs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "39376705"
+	},
+	"item": [
+		{
+			"name": "Crear un cliente nuevo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"4\",\r\n  \"nombre\": \"Luisa\",\r\n  \"apellido\": \"Martínez\",\r\n  \"dni\": \"45678901\",\r\n  \"email\": \"luisa.martinez@example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8084/api/customers"
+			},
+			"response": [
+				{
+					"name": "cliente nuevo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"4\",\r\n  \"nombre\": \"Luisa\",\r\n  \"apellido\": \"Martínez\",\r\n  \"dni\": \"45678901\",\r\n  \"email\": \"luisa.martinez@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8084/api/customers"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 03 Dec 2024 03:07:22 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 4,\n    \"nombre\": \"Luisa\",\n    \"apellido\": \"Martínez\",\n    \"dni\": \"45678901\",\n    \"email\": \"luisa.martinez@example.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener detalles de un cliente por su ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"4\",\r\n  \"nombre\": \"Luisa\",\r\n  \"apellido\": \"Martínez\",\r\n  \"dni\": \"45678901\",\r\n  \"email\": \"luisa.martinez@example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8084/api/customers/2"
+			},
+			"response": [
+				{
+					"name": "cliente 2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"4\",\r\n  \"nombre\": \"Luisa\",\r\n  \"apellido\": \"Martínez\",\r\n  \"dni\": \"45678901\",\r\n  \"email\": \"luisa.martinez@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8084/api/customers/2"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 03 Dec 2024 03:16:04 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"nombre\": \"Ana\",\n    \"apellido\": \"Gómez\",\n    \"dni\": \"23456789\",\n    \"email\": \"ana.gomez@example.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Listar todos los clientes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"4\",\r\n  \"nombre\": \"Luisa\",\r\n  \"apellido\": \"Martínez\",\r\n  \"dni\": \"45678901\",\r\n  \"email\": \"luisa.martinez@example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8084/api/customers"
+			},
+			"response": [
+				{
+					"name": "todos los clientes",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"4\",\r\n  \"nombre\": \"Luisa\",\r\n  \"apellido\": \"Martínez\",\r\n  \"dni\": \"45678901\",\r\n  \"email\": \"luisa.martinez@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8084/api/customers"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 03 Dec 2024 03:14:45 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"nombre\": \"Juan\",\n        \"apellido\": \"Pérez\",\n        \"dni\": \"12345678\",\n        \"email\": \"juan.perez@gmail.com\"\n    },\n    {\n        \"id\": 2,\n        \"nombre\": \"Ana\",\n        \"apellido\": \"Gómez\",\n        \"dni\": \"23456789\",\n        \"email\": \"ana.gomez@example.com\"\n    },\n    {\n        \"id\": 3,\n        \"nombre\": \"Carlos\",\n        \"apellido\": \"Pérez\",\n        \"dni\": \"34567890\",\n        \"email\": \"carlos.perez@example.com\"\n    },\n    {\n        \"id\": 4,\n        \"nombre\": \"Luisa\",\n        \"apellido\": \"Martínez\",\n        \"dni\": \"45678901\",\n        \"email\": \"luisa.martinez@example.com\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Actualizar los datos de un cliente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Juan Carlos\",\r\n  \"apellido\": \"Pérez García\",\r\n  \"dni\": \"12345678\",\r\n  \"email\": \"juan.carlos.perez@example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8084/api/customers/1"
+			},
+			"response": [
+				{
+					"name": "actualizacion de cliente 1",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Juan Carlos\",\r\n  \"apellido\": \"Pérez García\",\r\n  \"dni\": \"12345678\",\r\n  \"email\": \"juan.carlos.perez@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8084/api/customers/1"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 03 Dec 2024 03:19:11 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"Juan Carlos\",\n    \"apellido\": \"Pérez García\",\n    \"dni\": \"12345678\",\n    \"email\": \"juan.carlos.perez@example.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar los datos de un cliente Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"4\",\r\n  \"nombre\": \"Luisa\",\r\n  \"apellido\": \"Martínez\",\r\n  \"dni\": \"45678901\",\r\n  \"email\": \"luisa.martinez@example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8084/api/customers/4"
+			},
+			"response": [
+				{
+					"name": "eliminacion cliente 4",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"4\",\r\n  \"nombre\": \"Luisa\",\r\n  \"apellido\": \"Martínez\",\r\n  \"dni\": \"45678901\",\r\n  \"email\": \"luisa.martinez@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8084/api/customers/4"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 03 Dec 2024 03:20:10 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}

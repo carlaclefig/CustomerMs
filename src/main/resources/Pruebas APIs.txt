@@ -1,0 +1,29 @@
+PRUEBAS APIS
+
+**Crear un cliente nuevo: 
+POST http://localhost:8084/api/customers
+{
+  "id": "4",
+  "nombre": "Luisa",
+  "apellido": "Martínez",
+  "dni": "45678901",
+  "email": "luisa.martinez@example.com"
+}
+
+**Listar todos los clientes:
+GET http://localhost:8084/api/customers
+
+**Obtener detalles de un cliente por su ID: 
+GET http://localhost:8084/api/customers/2
+
+**Actualizar los datos de un cliente:
+PUT http://localhost:8084/api/customers/1
+{
+  "nombre": "Juan Carlos",
+  "apellido": "Pérez García",
+  "dni": "12345678",
+  "email": "juan.carlos.perez@example.com"
+}
+
+**Eliminar un cliente:
+DELETE http://localhost:8084/api/customers/4
